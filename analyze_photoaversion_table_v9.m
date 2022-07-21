@@ -2,7 +2,7 @@ t_before_stim = 30; % Time to include before light stimulus, in seconds
 t_after_stim = 90; % Time to include after light stimulus, in seconds
 
 % Plots to make
-polar_plots = false;
+polar_plots = true;
 
 % Moment at which to measure all the statistics 
 measure_moment = 15; % s 
@@ -21,10 +21,10 @@ turn_thresh = 90; % Threshold for a strong response
 intensity_dependence = false; 
 
 % Compare genotypes? (each mouse tested at multiple light intensities)
-plot_genotypes = false; 
+plot_genotypes = true; 
 
 % Opn4 Cre/+ Brn3b DTA +/wt or wt/wt
-opn4_cre_brn3b_dta = false;
+opn4_cre_brn3b_dta = true;
 
 % Examine TRPC 3 6 7? 
 TRPC3_6_7 = false; 
@@ -33,7 +33,7 @@ TRPC3_6_7 = false;
 melanopsin_ko = false;          
 
 % Enucleated? 
-enuc = true;
+enuc = false;
 
 % Examine connexin ko? 
 connexin_45 = false; 
@@ -56,8 +56,8 @@ arbitrary_selection = false;
 
 
 %% Apply primary selections to the data 
-cd('E:\');
-path = '1-neonatal behavior project\9 - summary spreadsheets\photoaversion';
+cd('D:\');
+path = 'general code\photoaversion';
 
 if opn4_cre_brn3b_dta
     data_guide_name = 'Opn4Cre Brn3b DTA.xlsx';
@@ -423,7 +423,7 @@ if polar_plots
         hold on 
         %plot(time - t_before_stim, d.theta_filt_wrt_LED(i,:), '-b');
         plot(time - t_before_stim, d.theta_cummax(i,:), '--k');
-        set(gcf, 'Position', [0   398   500   190]);
+        set(gcf, 'Position', [371   400   500   190]);
         ylim([-5 180]); 
         yticks([0 90 180]);
         xlim([-30 90]);
@@ -838,8 +838,6 @@ end
 set(h_factor, 'Position', [-929   309   368   250]);
 set(h_theta, 'Renderer', 'painters', 'Position', [-1709         202         938         356]);
 
-
-%% Dotplots of max turn at t = x and median head angle from t = a:b
 
 
 
